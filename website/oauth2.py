@@ -27,7 +27,8 @@ class AuthorizationCodeGrant(grants.AuthorizationCodeGrant):
 
     def parse_authorization_code(self, code, client):
         item = OAuth2AuthorizationCode.query.filter_by(
-            code=code, client_id=client.client_id).first()
+            code=code, client_id=client.client_id
+        ).first()
         if item and not item.is_expired():
             return item
 
@@ -58,10 +59,7 @@ class RefreshTokenGrant(grants.RefreshTokenGrant):
 
 query_client = create_query_client_func(db.session, OAuth2Client)
 save_token = create_save_token_func(db.session, OAuth2Token)
-authorization = AuthorizationServer(
-    query_client=query_client,
-    save_token=save_token,
-)
+authorization = AuthorizationServer(query_client=query_client, save_token=save_token)
 require_oauth = ResourceProtector()
 
 
