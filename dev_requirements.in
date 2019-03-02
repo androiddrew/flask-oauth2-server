@@ -1,0 +1,7 @@
+black
+pip-tools
+pytest
+coverage
+pytest-cov
+bumpversion
+flake8
