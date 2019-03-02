@@ -62,3 +62,10 @@ target/
 
 # Pycharm
 .idea/
+
+
+# SSL keys for development
+keys/
+
+# Database
+*.sqlite
